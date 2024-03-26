@@ -1,0 +1,72 @@
+<mat-card>
+
+  <mat-toolbar color="primary">Lista de Clientes</mat-toolbar>
+
+  <div *ngIf="clients$ | async as clients; else loading">
+    <table mat-table [dataSource]="clients" class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let client"> {{client.position}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let client"> {{client.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let client"> {{client.name}} </td>
+      </ng-container>
+
+      <!-- email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> E-mail </th>
+        <td mat-cell *matCellDef="let client"> {{client.email}} </td>
+      </ng-container>
+
+      <!-- Cel Column -->
+      <ng-container matColumnDef="cel">
+        <th mat-header-cell *matHeaderCellDef> Telefone </th>
+        <td mat-cell *matCellDef="let client"> {{client.cel}} </td>
+      </ng-container>
+
+      <!-- cpf Column -->
+      <ng-container matColumnDef="cpf">
+        <th mat-header-cell *matHeaderCellDef> CPF </th>
+        <td mat-cell *matCellDef="let client"> {{client.cpf}} </td>
+      </ng-container>
+
+      <!-- created Column -->
+      <ng-container matColumnDef="created">
+        <th mat-header-cell *matHeaderCellDef> Created </th>
+        <td mat-cell *matCellDef="let client"> {{client.created}} </td>
+      </ng-container>
+
+      <!-- updated Column -->
+      <ng-container matColumnDef="updated">
+        <th mat-header-cell *matHeaderCellDef> Updated </th>
+        <td mat-cell *matCellDef="let client"> {{client.updated}} </td>
+      </ng-container>
+
+      <!-- created Column -->
+      <ng-container matColumnDef="registryUser">
+        <th mat-header-cell *matHeaderCellDef> Registry User </th>
+        <td mat-cell *matCellDef="let client"> {{client.registryUser}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <ng-template #loading>
+    <div class="loadingSpinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+
+</mat-card>

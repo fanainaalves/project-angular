@@ -1,0 +1,12 @@
+mat-toolbar {
+  background: rgb(73, 6, 117);
+  color: white;
+  font-size: large;
+  height: 50px;
+}
+
+span:hover{
+  color: rgb(156, 156, 156);
+  transition: .4s;
+  cursor: pointer;
+}
