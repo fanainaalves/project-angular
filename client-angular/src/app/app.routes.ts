@@ -26,7 +26,7 @@ export const routes: Routes = [
     component: ListClientsComponent
   },
   {
-    path: "register",
+    path: "newClient",
     component: RegisterClientsComponent
   }
 ]
