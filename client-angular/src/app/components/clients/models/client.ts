@@ -4,8 +4,6 @@ export interface Client {
   email: string;
   cel: string;
   cpf: string;
-  created: string;
-  updated: string;
   registryUser: string;
 
 }

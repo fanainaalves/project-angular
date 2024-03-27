@@ -1,3 +1,28 @@
-<form>
-  
-</form>
+<mat-card>
+
+  <mat-card-content>
+    <mat-toolbar color="primary">Cadastre um novo cliente</mat-toolbar>
+    <form [formGroup]="form">
+      <mat-form-field class="full-width min-width">
+        <input matInput placeholder="Nome" formControlName="name">
+      </mat-form-field>
+      <mat-form-field class="full-width min-width">
+        <input matInput placeholder="E-mail" formControlName="email">
+      </mat-form-field>
+      <mat-form-field class="full-width min-width">
+        <input matInput placeholder="Contato" formControlName="cel">
+      </mat-form-field>
+      <mat-form-field class="full-width min-width">
+        <input matInput placeholder="CPF" formControlName="cpf">
+      </mat-form-field>
+      <mat-form-field class="full-width min-width">
+        <input matInput placeholder="Registro de Usuario" formControlName="registryUser">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
+    <button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>

@@ -22,7 +22,7 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
 export class ListClientsComponent implements OnInit {
 
   clients$: Observable<Client[]>;
-  displayedColumns = [ "id", "name", "email", "cel", "cpf", "created", "updated", "registryUser", "actions" ]
+  displayedColumns = [ "id", "name", "email", "cel", "cpf", "registryUser", "actions" ]
   //clientsServices: ClientsService;
 
   constructor(private clientsServices: ClientsService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute){

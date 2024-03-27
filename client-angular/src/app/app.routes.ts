@@ -1,5 +1,4 @@
 import { RouterModule, Routes } from '@angular/router';
-import { ClientsComponent } from './components/clients/clients.component';
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import { ListClientsComponent } from './components/clients/list-clients/list-clients.component';
@@ -11,30 +10,26 @@ export const routes: Routes = [
   {
     path: "",
     pathMatch: "full",
-    redirectTo: "clients"
-  },
-  {
-    path: "",
-    loadComponent: () => import("./components/clients/clients.component").then(m => m.ClientsComponent)
+    redirectTo: "list"
   },
   {
     path: "find",
-    component: FindClientsComponent
+    loadComponent: () => import("./components/clients/find-clients/find-clients.component").then(m => m.FindClientsComponent)
   },
   {
     path: "list",
-    component: ListClientsComponent
+    loadComponent: () => import("./components/clients/list-clients/list-clients.component").then(m => m.ListClientsComponent)
   },
   {
     path: "newClient",
-    component: RegisterClientsComponent
+    loadComponent: () => import("./components/clients/register-clients/register-clients.component").then(m => m.RegisterClientsComponent)
   }
 ]
 
 @NgModule({
   declarations: [],
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forChild(routes),
     CommonModule,
     HttpClientModule
   ]
