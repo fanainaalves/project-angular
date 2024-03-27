@@ -45,5 +45,9 @@ export class ListClientsComponent implements OnInit {
   onAdd(){
     this.router.navigate(['newClient'], {relativeTo: this.route})
   }
+
+  onEdit(client: Client){
+    
+  }
 }
 

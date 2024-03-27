@@ -1,16 +1,17 @@
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
-import { ListClientsComponent } from './components/clients/list-clients/list-clients.component';
-import { FindClientsComponent } from './components/clients/find-clients/find-clients.component';
-import { RegisterClientsComponent } from './components/clients/register-clients/register-clients.component';
+import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 export const routes: Routes = [
   {
     path: "",
     pathMatch: "full",
-    redirectTo: "list"
+    redirectTo: "clients"
+  },
+  {
+    path: "clients",
+    loadComponent: () => import("./components/clients/clients/clients.component").then(m => m.ClientsComponent)
   },
   {
     path: "find",
