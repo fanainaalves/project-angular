@@ -51,7 +51,7 @@
 
     <mat-cell *matCellDef="let client" class="action-column">
       <button mat-icon-button color="primary" aria-label="Editar um cliente">
-        <mat-icon class="material-symbols-outlined" (click)="onEdit()">edit</mat-icon>
+        <mat-icon class="material-symbols-outlined" (click)="onEdit(client)">edit</mat-icon>
       </button>
 
       <button mat-icon-button color="warn" aria-label="Remover um cliente">

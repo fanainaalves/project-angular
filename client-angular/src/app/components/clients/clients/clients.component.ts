@@ -21,24 +21,21 @@ export class ClientsComponent implements OnInit{
 
   @Input() clients: Client[] = [];
   @Output() add = new EventEmitter(false);
+  @Output() edit = new EventEmitter(false);
+
+
   displayedColumns = [ "id", "name", "email", "cel", "cpf", "registryUser", "actions" ]
 
 
-  constructor(private router: Router,
-    private route: ActivatedRoute){
-
-  }
+  constructor(private router: Router, private route: ActivatedRoute){}
 
   onAdd() {
     this.add.emit(true);
-
-    // this.router.navigate(['newClient'], { relativeTo: this.route })
-
-
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
+  onEdit(client: Client){
+    this.edit.emit(client);
   }
-  onEdit(){}
 }

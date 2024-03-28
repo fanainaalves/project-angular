@@ -24,6 +24,10 @@ export const routes: Routes = [
   {
     path: "newClient",
     loadComponent: () => import("./components/clients/register-clients/register-clients.component").then(m => m.RegisterClientsComponent)
+  },
+  {
+    path: "editClient/:id",
+    loadComponent: () => import("./components/clients/register-clients/register-clients.component").then(m => m.RegisterClientsComponent)
   }
 ]
 

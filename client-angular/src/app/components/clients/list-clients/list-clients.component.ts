@@ -63,7 +63,7 @@ export class ListClientsComponent implements OnInit {
   }
 
   onEdit(client: Client){
-
+    this.router.navigate(['editClient', client.id], {relativeTo: this.route})
   }
 }
 
