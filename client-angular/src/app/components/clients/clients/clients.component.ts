@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Client } from '../models/client';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
@@ -20,6 +20,7 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
 export class ClientsComponent implements OnInit{
 
   @Input() clients: Client[] = [];
+  @Output() add = new EventEmitter(false);
   displayedColumns = [ "id", "name", "email", "cel", "cpf", "registryUser", "actions" ]
 
 
@@ -29,7 +30,11 @@ export class ClientsComponent implements OnInit{
   }
 
   onAdd() {
-    this.router.navigate(['newClient'], { relativeTo: this.route })
+    this.add.emit(true);
+
+    // this.router.navigate(['newClient'], { relativeTo: this.route })
+
+
   }
 
   ngOnInit(): void {

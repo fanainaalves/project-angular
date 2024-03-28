@@ -32,7 +32,8 @@ import {ClientsComponent} from '../clients/clients.component';
 export class ListClientsComponent implements OnInit {
 
   clients$: Observable<Client[]>;
-  displayedColumns = [ "id", "name", "email", "cel", "cpf", "registryUser", "actions" ]
+
+  // displayedColumns = [ "id", "name", "email", "cel", "cpf", "registryUser", "actions" ]
   //clientsServices: ClientsService;
 
   constructor(

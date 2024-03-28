@@ -1,6 +1,8 @@
 .mat-table{
   overflow: auto;
   max-height: 600px;
+  margin: 1em auto;
+  display: flex;
 }
 
 .action-column{

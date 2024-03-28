@@ -1,16 +1,18 @@
 <mat-card>
+  <mat-card-content>
+    <mat-toolbar color="primary">Lista de Clientes</mat-toolbar>
 
-  <mat-toolbar color="primary">Lista de Clientes</mat-toolbar>
+    <div class="column-flex mat-elevation-z8">
 
-  <div class="column-flex mat-elevation-z8">
+      <app-clients class="app-clients" *ngIf="clients$ | async as clients; else loading"
+      [clients]="clients" (add)="onAdd()"></app-clients>
 
-    <app-clients *ngIf="clients$ | async as clients; else loading"></app-clients>
+      <ng-template #loading>
+        <div class="loadingSpinner">
+          <mat-spinner></mat-spinner>
+        </div>
+      </ng-template>
 
-    <ng-template #loading>
-      <div class="loadingSpinner">
-        <mat-spinner></mat-spinner>
-      </div>
-    </ng-template>
-
-  </div>
+    </div>
+  </mat-card-content>
 </mat-card>
