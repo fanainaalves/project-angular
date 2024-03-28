@@ -20,7 +20,7 @@ export class ClientsService {
     );
   }
 
-  save(record: Client){
+  save(record: Partial<Client>){
     return this.httpClient.post<Client>(this.API, record);
   }
 }

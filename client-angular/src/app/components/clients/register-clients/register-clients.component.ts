@@ -1,7 +1,7 @@
 import { CommonModule, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AppModule } from '../../../app.routes';
-import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
@@ -29,7 +29,16 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 
 export class RegisterClientsComponent implements OnInit{
-  form: FormGroup;
+
+
+  form = this.formBuilder.group({
+    id: [""],
+    name: [""],
+    email: [""],
+    cel: [""],
+    cpf: [""],
+    registryUser: [""]
+});
 
   constructor(
     private formBuilder: NonNullableFormBuilder,
@@ -37,19 +46,9 @@ export class RegisterClientsComponent implements OnInit{
     private snackBar: MatSnackBar,
     private location: Location
     ){
-      this.form = this.formBuilder.group({
-        id: [""],
-        name: [""],
-        email: [""],
-        cel: [""],
-        cpf: [""],
-        registryUser: [""]
-    });
 
   }
-  ngOnInit(): void{
-
-  }
+  ngOnInit(): void{}
 
   onSubmit(){
     this.service.save(this.form.value).subscribe(result => this.onSuccess(), error => this.onError());

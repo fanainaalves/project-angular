@@ -11,11 +11,21 @@ import { Observable, catchError, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../shared/error-dialog/error-dialog.component';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
+import {ClientsComponent} from '../clients/clients.component';
 
 @Component({
   selector: 'app-list-clients',
   standalone: true,
-  imports: [RouterModule, CommonModule, MatTableModule, MatCardModule, MatToolbarModule, MatProgressSpinnerModule, MatIcon],
+  imports: [
+    RouterModule,
+    CommonModule,
+    MatTableModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    MatIcon,
+    ClientsComponent
+  ],
   templateUrl: './list-clients.component.html',
   styleUrl: './list-clients.component.css'
 })
@@ -25,12 +35,16 @@ export class ListClientsComponent implements OnInit {
   displayedColumns = [ "id", "name", "email", "cel", "cpf", "registryUser", "actions" ]
   //clientsServices: ClientsService;
 
-  constructor(private clientsServices: ClientsService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute){
-    this.clients$ = this.clientsServices.list()
-    .pipe(
-      catchError(error => {
-        this.onError('Erro ao carregar clientes.');
-        return of([])
+  constructor(
+    private clientsServices: ClientsService,
+    public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute){
+      this.clients$ = this.clientsServices.list()
+      .pipe(
+        catchError(error => {
+          this.onError('Erro ao carregar clientes.');
+          return of([])
       })
     );
   }
@@ -40,14 +54,15 @@ export class ListClientsComponent implements OnInit {
       data: errorMsg
     })
   }
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   onAdd(){
     this.router.navigate(['newClient'], {relativeTo: this.route})
   }
 
   onEdit(client: Client){
-    
+
   }
 }
 

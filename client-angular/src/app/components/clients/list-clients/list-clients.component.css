@@ -14,3 +14,9 @@ mat-card-content{
   max-width: 95%;
   margin: 1em auto;
 }
+
+.column-flex{
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
