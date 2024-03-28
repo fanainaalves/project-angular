@@ -9,6 +9,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { ClientsService } from '../services/clients.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Client } from '../models/client';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -44,11 +46,21 @@ export class RegisterClientsComponent implements OnInit{
     private formBuilder: NonNullableFormBuilder,
     private service: ClientsService,
     private snackBar: MatSnackBar,
-    private location: Location
-    ){
+    private location: Location,
+    private route: ActivatedRoute
+    ){}
 
+  ngOnInit(): void{
+    const client: Client = this.route.snapshot.data['client'];
+    this.form.setValue({
+      id: client.id,
+      name: client.name,
+      email: client.email,
+      cel: client.cel,
+      cpf: client.cpf,
+      registryUser: client.registryUser
+    })
   }
-  ngOnInit(): void{}
 
   onSubmit(){
     this.service.save(this.form.value).subscribe(result => this.onSuccess(), error => this.onError());
