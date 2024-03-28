@@ -25,6 +25,18 @@ export class ClientsService {
   }
 
   save(record: Partial<Client>){
+    return this.create(record);
+  }
+
+  private create(record: Partial<Client>){
     return this.httpClient.post<Client>(this.API, record);
+  }
+
+  private update(record: Partial<Client>){
+    return this.httpClient.put<Client>(`${this.API}/${record.id}`, record).pipe(first());
+  }
+
+  delete(id: string){
+    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
   }
 }
