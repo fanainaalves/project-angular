@@ -4,19 +4,29 @@
     <mat-toolbar color="primary">Cadastre um novo cliente</mat-toolbar>
     <form [formGroup]="form">
       <mat-form-field class="full-width min-width">
-        <input matInput placeholder="Nome" formControlName="name">
+        <input matInput placeholder="Nome" formControlName="name" #name>
+        <mat-hint align="end">{{name.value ?.length || 0}} / 30</mat-hint>
+        <mat-error *ngIf="form.get('name') ?.invalid">{{getErrorMessage('name')}}</mat-error>
       </mat-form-field>
       <mat-form-field class="full-width min-width">
-        <input matInput placeholder="E-mail" formControlName="email">
+        <input matInput placeholder="E-mail" formControlName="email" #email>
+        <mat-hint align="end">{{email.value ?.length || 0}} / 30</mat-hint>
+        <mat-error *ngIf="form.get('email') ?.invalid">{{getErrorMessage('email')}}</mat-error>
       </mat-form-field>
       <mat-form-field class="full-width min-width">
-        <input matInput placeholder="Contato" formControlName="cel">
+        <input matInput placeholder="Contato" formControlName="cel" #cel>
+        <mat-hint align="end">{{cel.value ?.length || 0}} / 20</mat-hint>
+        <mat-error *ngIf="form.get('cel') ?.invalid">{{getErrorMessage('cel')}}</mat-error>
       </mat-form-field>
       <mat-form-field class="full-width min-width">
-        <input matInput placeholder="CPF" formControlName="cpf">
+        <input matInput placeholder="CPF" formControlName="cpf" #cpf>
+        <mat-hint align="end">{{cpf.value ?.length || 0}} / 11</mat-hint>
+        <mat-error *ngIf="form.get('cpf') ?.invalid">{{getErrorMessage('cpf')}}</mat-error>
       </mat-form-field>
       <mat-form-field class="full-width min-width">
-        <input matInput placeholder="Registro de Usuario" formControlName="registryUser">
+        <input matInput placeholder="Registro de Usuario" formControlName="registryUser" #registryUser>
+        <mat-hint align="end">{{registryUser.value ?.length || 0}} / 11</mat-hint>
+        <mat-error *ngIf="form.get('registryUser') ?.invalid">{{getErrorMessage('registryUser')}}</mat-error>
       </mat-form-field>
     </form>
   </mat-card-content>

@@ -5,7 +5,7 @@
     <div class="column-flex mat-elevation-z8">
 
       <app-clients class="app-clients" *ngIf="clients$ | async as clients; else loading"
-      [clients]="clients" (add)="onAdd()" (edit)="onEdit($event)"></app-clients>
+      [clients]="clients" (add)="onAdd()" (edit)="onEdit($event)" (delete)="onDelete($event)"></app-clients>
 
       <ng-template #loading>
         <div class="loadingSpinner">

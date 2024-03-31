@@ -22,7 +22,7 @@ export class ClientsComponent implements OnInit{
   @Input() clients: Client[] = [];
   @Output() add = new EventEmitter(false);
   @Output() edit = new EventEmitter(false);
-
+  @Output() delete = new EventEmitter(false);
 
   displayedColumns = [ "id", "name", "email", "cel", "cpf", "registryUser", "actions" ]
 
@@ -30,6 +30,10 @@ export class ClientsComponent implements OnInit{
   constructor(private router: Router, private route: ActivatedRoute){}
 
   onAdd() {
+    this.add.emit(true);
+  }
+
+  onDelete(){
     this.add.emit(true);
   }
 

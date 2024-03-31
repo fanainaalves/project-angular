@@ -1,7 +1,7 @@
 import { CommonModule, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AppModule } from '../../../app.routes';
-import { FormBuilder, FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
@@ -32,15 +32,16 @@ import { ActivatedRoute } from '@angular/router';
 
 export class RegisterClientsComponent implements OnInit{
 
+  form!: FormGroup;
 
-  form = this.formBuilder.group({
-    id: [""],
-    name: [""],
-    email: [""],
-    cel: [""],
-    cpf: [""],
-    registryUser: [""]
-});
+//   form = this.formBuilder.group({
+//     id: [],
+//     name: ["",],
+//     email: [""],
+//     cel: [""],
+//     cpf: [""],
+//     registryUser: [""]
+// });
 
   constructor(
     private formBuilder: NonNullableFormBuilder,
@@ -52,13 +53,13 @@ export class RegisterClientsComponent implements OnInit{
 
   ngOnInit(): void{
     const client: Client = this.route.snapshot.data['client'];
-    this.form.setValue({
-      id: client.id,
-      name: client.name,
-      email: client.email,
-      cel: client.cel,
-      cpf: client.cpf,
-      registryUser: client.registryUser
+    this.form = this.formBuilder.group({
+      id: [client.id],
+      name: [client.name, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+      email: [client.email, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      cel: [client.cel , [Validators.required, Validators.minLength(8), Validators.maxLength(11)]],
+      cpf: [client.cpf, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+      registryUser: [Validators.required, client.registryUser]
     })
   }
 
@@ -78,6 +79,25 @@ export class RegisterClientsComponent implements OnInit{
   private onError(){
     this.snackBar.open('Erro ao salvar cliente', '', { duration: 2000});
   }
+
+  getErrorMessage(fieldName: string){
+    const field = this.form.get(fieldName);
+    if(field ?.hasError('required')){
+      return 'Campo obrigatório';
+    }
+    if(field ?.hasError('minlength')){
+      const requiredLength = field.errors ? field.errors['minlength']['requiredLength'] : 3;
+      return `Tamanho mínimo de ${requiredLength} caracteres.`;
+    }
+    if(field ?.hasError('maxlength')){
+      const requiredLength = field.errors ? field.errors['maxlength']['requiredLength'] : 30;
+      return  `Tamanho máximo de ${requiredLength} caracteres.`;
+    }
+    return 'Erro! Campo inválido';
+
+  }
+
+
 }
 
 
