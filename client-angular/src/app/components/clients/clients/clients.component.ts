@@ -33,8 +33,8 @@ export class ClientsComponent implements OnInit{
     this.add.emit(true);
   }
 
-  onDelete(){
-    this.add.emit(true);
+  onDelete(client: Client){
+    this.delete.emit(client);
   }
 
   ngOnInit(): void {}

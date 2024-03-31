@@ -55,7 +55,7 @@
       </button>
 
       <button mat-icon-button color="warn" aria-label="Remover um cliente">
-        <mat-icon class="material-symbols-outlined" (click)="onDelete()">delete</mat-icon>
+        <mat-icon class="material-symbols-outlined" (click)="onDelete(client)">delete</mat-icon>
       </button>
     </mat-cell>
 
@@ -65,4 +65,4 @@
   <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
 
-<!-- PAREI NA AULA 33 - INICIAR ELA -->
+
