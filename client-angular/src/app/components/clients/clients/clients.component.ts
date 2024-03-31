@@ -3,6 +3,7 @@ import { Client } from '../models/client';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 
 
@@ -12,6 +13,7 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
   imports: [
     MatTableModule,
     MatCardModule,
+    MatToolbarModule,
     MatIcon
   ],
   templateUrl: './clients.component.html',

@@ -4,6 +4,11 @@
   margin: 1em auto;
   display: flex;
 }
+mat-card{
+  max-width: 80%;
+  margin: 1em auto;
+  text-align: center;
+}
 
 .action-column{
   flex: 0 0 75px;

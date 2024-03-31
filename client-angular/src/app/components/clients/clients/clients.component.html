@@ -1,68 +1,71 @@
-<mat-table  [dataSource]="clients">
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <mat-header-cell  *matHeaderCellDef> No. </mat-header-cell>
-    <mat-cell  *matCellDef="let client"> {{client.position}} </mat-cell>
-  </ng-container>
+<mat-card>
+  <mat-card-content>
+    <mat-toolbar color="primary">Clientes</mat-toolbar>
+    <mat-table [dataSource]="clients">
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let client"> {{client.position}} </mat-cell>
+      </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-    <mat-cell *matCellDef="let client"> {{client.id}} </mat-cell>
-  </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let client"> {{client.id}} </mat-cell>
+      </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-    <mat-cell *matCellDef="let client"> {{client.name}} </mat-cell>
-  </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+        <mat-cell *matCellDef="let client"> {{client.name}} </mat-cell>
+      </ng-container>
 
-  <!-- email Column -->
-  <ng-container matColumnDef="email">
-    <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
-    <mat-cell *matCellDef="let client"> {{client.email}} </mat-cell>
-  </ng-container>
+      <!-- email Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+        <mat-cell *matCellDef="let client"> {{client.email}} </mat-cell>
+      </ng-container>
 
-  <!-- Cel Column -->
-  <ng-container matColumnDef="cel">
-    <mat-header-cell *matHeaderCellDef> Telefone </mat-header-cell>
-    <mat-cell *matCellDef="let client"> {{client.cel}} </mat-cell>
-  </ng-container>
+      <!-- Cel Column -->
+      <ng-container matColumnDef="cel">
+        <mat-header-cell *matHeaderCellDef> Telefone </mat-header-cell>
+        <mat-cell *matCellDef="let client"> {{client.cel}} </mat-cell>
+      </ng-container>
 
-  <!-- cpf Column -->
-  <ng-container matColumnDef="cpf">
-    <mat-header-cell *matHeaderCellDef> CPF </mat-header-cell>
-    <mat-cell *matCellDef="let client"> {{client.cpf}} </mat-cell>
-  </ng-container>
+      <!-- cpf Column -->
+      <ng-container matColumnDef="cpf">
+        <mat-header-cell *matHeaderCellDef> CPF </mat-header-cell>
+        <mat-cell *matCellDef="let client"> {{client.cpf}} </mat-cell>
+      </ng-container>
 
-  <!-- created Column -->
-  <ng-container matColumnDef="registryUser">
-    <mat-header-cell *matHeaderCellDef> Registry User </mat-header-cell>
-    <mat-cell *matCellDef="let client"> {{client.registryUser}} </mat-cell>
-  </ng-container>
+      <!-- created Column -->
+      <ng-container matColumnDef="registryUser">
+        <mat-header-cell *matHeaderCellDef> Registry User </mat-header-cell>
+        <mat-cell *matCellDef="let client"> {{client.registryUser}} </mat-cell>
+      </ng-container>
 
-  <!-- Actions Column -->
-  <ng-container matColumnDef="actions">
-    <mat-header-cell *matHeaderCellDef class="action-column-header">
-      <button mat-mini-fab color="accent" aria-label="Adicionar um cliente">
-        <mat-icon class="material-symbols-outlined" (click)="onAdd()">add</mat-icon>
-      </button>
-    </mat-header-cell>
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef class="action-column-header">
+          <button mat-mini-fab color="accent" aria-label="Adicionar um cliente">
+            <mat-icon class="material-symbols-outlined" (click)="onAdd()">add</mat-icon>
+          </button>
+        </mat-header-cell>
 
-    <mat-cell *matCellDef="let client" class="action-column">
-      <button mat-icon-button color="primary" aria-label="Editar um cliente">
-        <mat-icon class="material-symbols-outlined" (click)="onEdit(client)">edit</mat-icon>
-      </button>
+        <mat-cell *matCellDef="let client" class="action-column">
+          <button mat-icon-button color="primary" aria-label="Editar um cliente">
+            <mat-icon class="material-symbols-outlined" (click)="onEdit(client)">edit</mat-icon>
+          </button>
 
-      <button mat-icon-button color="warn" aria-label="Remover um cliente">
-        <mat-icon class="material-symbols-outlined" (click)="onDelete(client)">delete</mat-icon>
-      </button>
-    </mat-cell>
+          <button mat-icon-button color="warn" aria-label="Remover um cliente">
+            <mat-icon class="material-symbols-outlined" (click)="onDelete(client)">delete</mat-icon>
+          </button>
+        </mat-cell>
 
-  </ng-container>
+      </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
-
-
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </mat-card-content>
+</mat-card>
