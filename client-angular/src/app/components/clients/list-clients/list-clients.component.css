@@ -17,3 +17,15 @@ mat-card{
   flex-direction: column;
   min-width: 300px;
 }
+
+mat-form-field{
+  width: 60%;
+  margin-top: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button{
+  margin-left: 10px;
+}

@@ -34,15 +34,6 @@ export class RegisterClientsComponent implements OnInit{
 
   form!: FormGroup;
 
-//   form = this.formBuilder.group({
-//     id: [],
-//     name: ["",],
-//     email: [""],
-//     cel: [""],
-//     cpf: [""],
-//     registryUser: [""]
-// });
-
   constructor(
     private formBuilder: NonNullableFormBuilder,
     private service: ClientsService,
@@ -59,7 +50,7 @@ export class RegisterClientsComponent implements OnInit{
       email: [client.email, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       cel: [client.cel , [Validators.required, Validators.minLength(8), Validators.maxLength(11)]],
       cpf: [client.cpf, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
-      registryUser: [Validators.required, client.registryUser]
+      registryUser: [client.registryUser, [Validators.required]]
     })
   }
 

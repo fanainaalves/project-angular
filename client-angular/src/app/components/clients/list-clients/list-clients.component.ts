@@ -14,6 +14,9 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {ClientsComponent} from '../clients/clients.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dialog.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-list-clients',
@@ -26,7 +29,10 @@ import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dial
     MatToolbarModule,
     MatProgressSpinnerModule,
     MatIcon,
-    ClientsComponent
+    ClientsComponent,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule
   ],
   templateUrl: './list-clients.component.html',
   styleUrl: './list-clients.component.css'

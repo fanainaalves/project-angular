@@ -4,7 +4,9 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
+import {MatIcon} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+
 
 
 @Component({
@@ -14,6 +16,7 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
     MatTableModule,
     MatCardModule,
     MatToolbarModule,
+    MatButtonModule,
     MatIcon
   ],
   templateUrl: './clients.component.html',
