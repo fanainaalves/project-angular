@@ -15,13 +15,13 @@ export class ClientsService {
   list(){
     return this.httpClient.get<Client[]>(this.API).pipe(
       first(),
-      delay(5000),
+      delay(1000),
       tap(clients => console.log(clients))
     );
   }
 
-  findByName(name: string){
-    return this.httpClient.get<Client>(`${this.API}/getId/${name}`);
+  findById(id: string){
+    return this.httpClient.get<Client>(`${this.API}/getId/${id}`);
   }
 
   save(record: Partial<Client>){

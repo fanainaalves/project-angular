@@ -21,12 +21,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class FindClientsComponent implements OnInit{
 
-  nomeBuscado: string = '';
+  idBuscado: string = '';
 
   constructor(private http: HttpClient){}
 
   buscarClientes(){
-    this.http.get('/api/clients/getName/' + this.nomeBuscado).subscribe((clientes: any) => {
+    this.http.get('/api/clients/getId/' + this.idBuscado).subscribe((clientes: any) => {
       console.log(clientes);
     })
   }

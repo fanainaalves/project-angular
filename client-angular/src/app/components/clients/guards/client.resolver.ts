@@ -12,8 +12,8 @@ export class ClientResolver implements Resolve<Client> {
   constructor(private service: ClientsService){}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Client>{
-    if(route.params && route.params['name']){
-      return this.service.findByName(route.params['name']);
+    if(route.params && route.params['id']){
+      return this.service.findById(route.params['id']);
     }
     return of({id: "", name: "", email: "", cel: "", cpf: "", registryUser: ""});
   }
