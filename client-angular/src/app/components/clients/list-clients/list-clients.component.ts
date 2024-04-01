@@ -56,12 +56,12 @@ export class ListClientsComponent implements OnInit {
 
   refresh() {
     this.clients$ = this.clientsServices.list()
-      // .pipe(
-      //   catchError(error => {
-      //     this.onError('Erro ao carregar clientes.');
-      //     return of([])
-      // })
-    // );
+      .pipe(
+        catchError(error => {
+          this.onError('Erro ao carregar clientes.');
+          return of([])
+      })
+    );
   }
 
 
@@ -74,7 +74,7 @@ export class ListClientsComponent implements OnInit {
   }
 
   onAdd(){
-    this.router.navigate(['newClient'], {relativeTo: this.route})
+    this.router.navigate(['/newClient'], {relativeTo: this.route})
   }
 
   onDelete(client: Client){

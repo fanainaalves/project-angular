@@ -26,7 +26,7 @@ export class FindClientsComponent implements OnInit{
   constructor(private http: HttpClient){}
 
   buscarClientes(){
-    this.http.get('/api/clients/getId/' + this.idBuscado).subscribe((clientes: any) => {
+    this.http.get('http://localhost:9001/api/clients/getId/' + this.idBuscado).subscribe((clientes: any) => {
       console.log(clientes);
     })
   }

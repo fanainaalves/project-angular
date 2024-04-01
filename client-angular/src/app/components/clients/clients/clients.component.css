@@ -5,15 +5,15 @@
   display: flex;
 }
 mat-card{
-  max-width: 80%;
+  max-width: 70%;
   margin: 1em auto;
   text-align: center;
 }
 
 .action-column{
-  flex: 0 0 75px;
+  flex: 0 0 125px;
 }
 
 .action-column-header{
-  flex: 0 0 75px;
+  flex: 0 0 125px;
 }
