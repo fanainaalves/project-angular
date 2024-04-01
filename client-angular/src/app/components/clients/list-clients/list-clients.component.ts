@@ -56,12 +56,12 @@ export class ListClientsComponent implements OnInit {
 
   refresh() {
     this.clients$ = this.clientsServices.list()
-      .pipe(
-        catchError(error => {
-          this.onError('Erro ao carregar clientes.');
-          return of([])
-      })
-    );
+      // .pipe(
+      //   catchError(error => {
+      //     this.onError('Erro ao carregar clientes.');
+      //     return of([])
+      // })
+    // );
   }
 
 
@@ -86,7 +86,7 @@ export class ListClientsComponent implements OnInit {
         this.clientsServices.delete(client.id).subscribe(() => {
           this.refresh();
           this.snackbar.open('Cliente deletado com sucesso!', "X", {
-            duration: 5000,
+            duration: 1000,
             verticalPosition: 'top',
             horizontalPosition: 'center'
           })

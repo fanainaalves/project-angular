@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-find-clients',
@@ -11,11 +13,23 @@ import {MatInputModule} from '@angular/material/input';
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
   ],
   templateUrl: './find-clients.component.html',
   styleUrl: './find-clients.component.css'
 })
-export class FindClientsComponent {
+export class FindClientsComponent implements OnInit{
 
+  nomeBuscado: string = '';
+
+  constructor(private http: HttpClient){}
+
+  buscarClientes(){
+    this.http.get('/api/clients/getName/' + this.nomeBuscado).subscribe((clientes: any) => {
+      console.log(clientes);
+    })
+  }
+
+  ngOnInit(): void {}
 }

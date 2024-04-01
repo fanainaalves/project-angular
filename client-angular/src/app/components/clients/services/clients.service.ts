@@ -8,20 +8,20 @@ import { delay, first, tap } from 'rxjs';
 })
 export class ClientsService {
 
-  private readonly API = "/api/clients"
+  private readonly API = "/assets/clients.json"
 
   constructor(private httpClient: HttpClient) { }
 
   list(){
     return this.httpClient.get<Client[]>(this.API).pipe(
       first(),
-      delay(1000),
+      delay(5000),
       tap(clients => console.log(clients))
     );
   }
 
-  findById(id: string){
-    return this.httpClient.get<Client>(`${this.API}/getId/${id}`);
+  findByName(name: string){
+    return this.httpClient.get<Client>(`${this.API}/getId/${name}`);
   }
 
   save(record: Partial<Client>){

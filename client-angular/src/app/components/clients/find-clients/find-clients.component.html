@@ -2,8 +2,8 @@
   <mat-card-content>
     <mat-toolbar color="primary">Buscar clientes</mat-toolbar>
     <mat-form-field id="busca">
-      <input matInput placeholder="Digite um nome para buscar o cliente">
+      <input matInput placeholder="Digite um nome para buscar o cliente" [(ngModel)]="nomeBuscado">
     </mat-form-field>
-    <button mat-flat-button color="primary">Buscar</button>
+    <button mat-flat-button color="primary" (click)="buscarClientes()">Buscar</button>
 </mat-card-content>
 </mat-card>
