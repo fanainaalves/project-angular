@@ -20,12 +20,14 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './find-clients.component.css'
 })
 export class FindClientsComponent implements OnInit{
-
   idBuscado: string = '';
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient){
+  }
 
-  buscarClientes(){
+  buscarClientes(event: Event){
+    // const filterValue = (event.target as HTMLInputElement).value;
+    // this.dataSource.filter = filterValue.trim().toLowerCase();
     this.http.get('http://localhost:9001/api/clients/getId/' + this.idBuscado).subscribe((clientes: any) => {
       console.log(clientes);
     })

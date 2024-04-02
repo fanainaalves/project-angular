@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule, RouterLink } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
@@ -32,7 +32,8 @@ import {MatInputModule} from '@angular/material/input';
     ClientsComponent,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    RouterLink
   ],
   templateUrl: './list-clients.component.html',
   styleUrl: './list-clients.component.css'
@@ -40,9 +41,6 @@ import {MatInputModule} from '@angular/material/input';
 export class ListClientsComponent implements OnInit {
 
   clients$: Observable<Client[]> | null = null;
-
-  // displayedColumns = [ "id", "name", "email", "cel", "cpf", "registryUser", "actions" ]
-  //clientsServices: ClientsService;
 
   constructor(
     private clientsServices: ClientsService,
@@ -74,7 +72,11 @@ export class ListClientsComponent implements OnInit {
   }
 
   onAdd(){
-    this.router.navigate(['/newClient'], {relativeTo: this.route})
+    this.router.navigate(['newClient' ], {relativeTo: this.route})
+  }
+
+  onEdit(client: Client){
+    this.router.navigate(['editClient', client.id], {relativeTo: this.route})
   }
 
   onDelete(client: Client){
@@ -97,8 +99,6 @@ export class ListClientsComponent implements OnInit {
     });
   }
 
-  onEdit(client: Client){
-    this.router.navigate(['editClient', client.id], {relativeTo: this.route})
-  }
+
 }
 

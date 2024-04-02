@@ -4,6 +4,6 @@
     <mat-form-field id="busca">
       <input matInput placeholder="Digite um id para buscar o cliente" [(ngModel)]="idBuscado">
     </mat-form-field>
-    <button mat-flat-button color="primary" (click)="buscarClientes()">Buscar</button>
+    <button mat-flat-button color="primary" (click)="buscarClientes($event)">Buscar</button>
 </mat-card-content>
 </mat-card>

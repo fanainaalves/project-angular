@@ -15,8 +15,8 @@ export class ClientsService {
   list(){
     return this.httpClient.get<Client[]>(this.API).pipe(
       first(),
-      delay(1000),
-      tap(clients => console.log(clients))
+      delay(1000)
+      // ,tap(clients => console.log(clients))
     );
   }
 
