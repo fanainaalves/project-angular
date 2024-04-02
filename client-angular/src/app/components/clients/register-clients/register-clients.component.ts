@@ -45,7 +45,6 @@ export class RegisterClientsComponent implements OnInit{
   ngOnInit(): void{
     const client: Client = this.route.snapshot.data['client'];
     this.form = this.formBuilder.group({
-      id: [client.id],
       name: [client.name, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       email: [client.email, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       cel: [client.cel , [Validators.required, Validators.minLength(8), Validators.maxLength(11)]],

@@ -45,18 +45,18 @@
   <!-- Actions Column -->
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef class="action-column-header">
-      <button mat-mini-fab color="accent" aria-label="Adicionar um cliente">
-        <mat-icon class="material-symbols-outlined" color="primary" (click)="onAdd()">add</mat-icon>
+      <button mat-mini-fab color="primary" aria-label="Adicionar um cliente" (click)="onAdd()">
+        <mat-icon class="material-symbols-outlined" color="white">add</mat-icon>
       </button>
     </mat-header-cell>
 
     <mat-cell *matCellDef="let client" class="action-column">
-      <button mat-icon-button color="primary" aria-label="Editar um cliente">
-        <mat-icon class="material-symbols-outlined" (click)="onEdit(client)">edit</mat-icon>
+      <button mat-icon-button color="primary" aria-label="Editar um cliente" (click)="onEdit(client)">
+        <mat-icon class="material-symbols-outlined">edit</mat-icon>
       </button>
 
-      <button mat-icon-button color="warn" aria-label="Remover um cliente">
-        <mat-icon class="material-symbols-outlined" (click)="onDelete(client)">delete</mat-icon>
+      <button mat-icon-button color="warn" aria-label="Remover um cliente" (click)="onDelete(client)">
+        <mat-icon class="material-symbols-outlined">delete</mat-icon>
       </button>
     </mat-cell>
   </ng-container>

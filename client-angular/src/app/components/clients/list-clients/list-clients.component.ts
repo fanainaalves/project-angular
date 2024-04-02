@@ -72,12 +72,11 @@ export class ListClientsComponent implements OnInit {
   }
 
   onAdd(){
-    console.log('Cliquei aqui')
-    this.router.navigate(['newClient' ], {relativeTo: this.route})
+    this.router.navigate(['newClient' ], {relativeTo: null})
   }
 
   onEdit(client: Client){
-    this.router.navigate(['editClient', client.id], {relativeTo: this.route})
+    this.router.navigate(['editClient', client.id], {relativeTo: null})
   }
 
   onDelete(client: Client){

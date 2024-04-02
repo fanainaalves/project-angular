@@ -7,8 +7,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIcon} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 
-
-
 @Component({
   selector: 'app-clients',
   standalone: true,
@@ -35,7 +33,6 @@ export class ClientsComponent implements OnInit{
   constructor(private router: Router, private route: ActivatedRoute){}
 
   onAdd(){
-    console.log("aqui")
     this.add.emit(true);
   }
 
