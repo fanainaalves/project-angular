@@ -72,6 +72,7 @@ export class ListClientsComponent implements OnInit {
   }
 
   onAdd(){
+    console.log('Cliquei aqui')
     this.router.navigate(['newClient' ], {relativeTo: this.route})
   }
 

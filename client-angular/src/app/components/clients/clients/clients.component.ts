@@ -34,7 +34,8 @@ export class ClientsComponent implements OnInit{
 
   constructor(private router: Router, private route: ActivatedRoute){}
 
-  onAdd() {
+  onAdd(){
+    console.log("aqui")
     this.add.emit(true);
   }
 
